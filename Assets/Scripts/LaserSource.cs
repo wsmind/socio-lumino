@@ -38,7 +38,7 @@ public class LaserSource: MonoBehaviour
         RaycastHit hit;
         while (laserIndex < PoolSize)
         {
-            var laser = m_laserPool[laserIndex];
+            var laser = m_laserPool[laserIndex++];
             
             laser.transform.position = position;
             laser.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -47,16 +47,33 @@ public class LaserSource: MonoBehaviour
             {
                 laser.transform.localScale = new Vector3(1.0f, hit.distance, 1.0f);
                 
-                position = hit.point;
-                direction = Vector3.Reflect(direction, hit.normal);
+                var hitObject = hit.collider.gameObject;
+                var source = hitObject.GetComponent<LaserSource>();
+                var mirror = hitObject.GetComponent<Mirror>();
+                //var button = hitObject.GetComponent<Button>();
+                
+                // if we found a mirror, reflect and go on
+                if (mirror)
+                {
+                    position = hit.point;
+                    direction = Vector3.Reflect(direction, hit.normal);
+                    continue;
+                }
+                
+                // in case of a phosphorescent object, we just transmit energy to this object
+                // it will itself emit new rays
+                if (source)
+                {
+                    // give energy
+                }
+                
+                break;
             }
             else
             {
                 laser.transform.localScale = new Vector3(1.0f, 1000.0f, 1.0f);
                 break;
             }
-            
-            laserIndex++;
         }
 	}
 }
