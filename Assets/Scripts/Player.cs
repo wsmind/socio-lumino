@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
                     // stick the block to a placeable
                     if (Input.GetButtonDown("Fire1"))
                     {
-                        var block = SelectedBlock.GetComponent<MoveableBlock>();
+                        //var block = SelectedBlock.GetComponent<MoveableBlock>();
                         SelectedBlock.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                         SelectedBlock.GetComponent<Collider>().enabled = true;
                         SelectedBlock = null;
