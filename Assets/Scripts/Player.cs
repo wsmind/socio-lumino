@@ -53,13 +53,15 @@ public class Player : MonoBehaviour
                 if (placeable)
                 {
                     // move the selected block with the camera
-                    SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.up * SelectionOffset;
+                    SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.forward * SelectionOffset;
                     SelectedBlock.transform.rotation = hitObject.transform.rotation;
                     
                     // stick the block to a placeable
                     if (Input.GetButtonDown("Fire1"))
                     {
                         //var block = SelectedBlock.GetComponent<MoveableBlock>();
+                        SelectedBlock.transform.position = hitObject.transform.position;
+                        SelectedBlock.transform.rotation = hitObject.transform.rotation;
                         SelectedBlock.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                         SelectedBlock.GetComponent<Collider>().enabled = true;
                         SelectedBlock = null;
