@@ -42,6 +42,7 @@ ModelImporter:
     2300016: mur005
     2300018: Plane001
     2300020: Sphere001
+    2300022: //RootNode
     3300000: cube
     3300002: Cylinder001
     3300004: fromage
@@ -53,6 +54,7 @@ ModelImporter:
     3300016: mur005
     3300018: Plane001
     3300020: Sphere001
+    3300022: //RootNode
     4300000: fromage
     4300002: cube
     4300004: mur
