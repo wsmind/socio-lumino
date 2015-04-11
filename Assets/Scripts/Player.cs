@@ -1,25 +1,27 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
     public float MovementSpeed = 1.0f;
     public float MouseSpeed = 1.0f;
-    public float TargetSpeed = 10.0f;
+    //public float TargetSpeed = 10.0f;
+    public float Gravity = 10.0f;
+    public float JumpSpeed = 5.0f;
     public Camera ChildCamera;
     public GameObject SelectedBlock;
     public float SelectionScale = 0.8f;
     public float SelectionOffset = 0.2f;
     
-    private Rigidbody m_rigidBody;
+    private CharacterController m_controller;
+    private float m_verticalSpeed = 0.0f;
     
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        m_rigidBody = GetComponent<Rigidbody>();
+        m_controller = GetComponent<CharacterController>();
     }
     
     void Update()
@@ -73,9 +75,25 @@ public class Player : MonoBehaviour
         transform.Rotate(0.0f, mouse.x * MouseSpeed, 0.0f);
         ChildCamera.transform.Rotate(-mouse.y * MouseSpeed, 0.0f, 0.0f);
         
-        Vector3 movement = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+        if (m_controller.isGrounded)
+        {
+            m_verticalSpeed = -1.0f;
+            
+            if (Input.GetButtonDown("Jump"))
+            {
+                m_verticalSpeed = JumpSpeed;
+            }
+        }
+        else
+        {
+            m_verticalSpeed -= Gravity * Time.deltaTime;
+        }
+        
+        Vector3 velocity = (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical")) * MovementSpeed;
+        velocity.y = m_verticalSpeed * Time.deltaTime;
         //transform.position += movement * MovementSpeed;
-        if (m_rigidBody.velocity.sqrMagnitude < TargetSpeed * TargetSpeed)
-            m_rigidBody.AddForce(movement * MovementSpeed, ForceMode.Impulse);
+        m_controller.Move(velocity);
+        //if (m_rigidBody.velocity.sqrMagnitude < TargetSpeed * TargetSpeed)
+        //    m_rigidBody.AddForce(movement * MovementSpeed, ForceMode.Impulse);
 	}
 }
