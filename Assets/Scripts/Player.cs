@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         m_rigidBody = GetComponent<Rigidbody>();
     }
     
@@ -26,31 +27,41 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ChildCamera.transform.position, ChildCamera.transform.forward, out hit))
         {
+            var hitObject = hit.collider.gameObject;
             if (!SelectedBlock)
             {
-                // TODO: draw hovered block
+                var block = hitObject.GetComponent<MoveableBlock>();
                 
-                // try to grab a block
-                if (Input.GetButtonDown("Fire1"))
+                if (block)
                 {
-                    SelectedBlock = hit.collider.gameObject;
-                    SelectedBlock.transform.localScale = new Vector3(SelectionScale, SelectionScale, SelectionScale);
-                    hit.collider.enabled = false;
+                    // TODO: draw hovered block
+                    
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        // grab the block
+                        SelectedBlock = hitObject;
+                        SelectedBlock.transform.localScale = new Vector3(SelectionScale, SelectionScale, SelectionScale);
+                        hit.collider.enabled = false;
+                    }
                 }
             }
             else
             {
-                // move the selected block with the camera
-                var target = hit.collider.gameObject;
-                SelectedBlock.transform.position = target.transform.position + target.transform.up * SelectionOffset;
-                SelectedBlock.transform.rotation = target.transform.rotation;
-                
-                // try to stick a block to a wall
-                if (Input.GetButtonDown("Fire1"))
+                var placeable = hitObject.GetComponent<PlaceableBlock>();
+                if (placeable)
                 {
-                    SelectedBlock.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    SelectedBlock.GetComponent<Collider>().enabled = true;
-                    SelectedBlock = null;
+                    // move the selected block with the camera
+                    SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.up * SelectionOffset;
+                    SelectedBlock.transform.rotation = hitObject.transform.rotation;
+                    
+                    // stick the block to a placeable
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        var block = SelectedBlock.GetComponent<MoveableBlock>();
+                        SelectedBlock.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                        SelectedBlock.GetComponent<Collider>().enabled = true;
+                        SelectedBlock = null;
+                    }
                 }
             }
         }
