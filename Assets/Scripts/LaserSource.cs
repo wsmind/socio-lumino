@@ -46,6 +46,17 @@ public class LaserSource: MonoBehaviour
             laser.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
         }
         
+        var audioSource = GetComponent<AudioSource>();
+        if (audioSource)
+        {
+            float audioVolume = 1.0f;
+            if (Type == SourceType.Phosphorescent)
+                audioVolume = m_phosphorescentCharge / PhosphorescentDuration;
+            if (audioVolume < 0.0f)
+                audioVolume = 0.0f;
+            audioSource.volume = audioVolume;
+        }
+        
         switch (Type)
         {
             case SourceType.AlwaysActive:
