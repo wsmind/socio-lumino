@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: da7a7c7dbd7bbf741994b7716282e064
+timeCreated: 1428840654
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: intouchable_01
+    100004: intouchable_02
+    100006: intouchable_03
+    100008: plaeau roulant
+    100010: plateau roulant 1
+    100012: plateau roulant 2
+    100014: plateau roulant2
+    100016: roue 002
+    100018: roue 003
+    100020: roue 004
+    100022: roue 005
+    100024: roue 006
+    100026: roue 007
+    100028: roue 008
+    100030: roue 1
+    400000: //RootNode
+    400002: intouchable_01
+    400004: intouchable_02
+    400006: intouchable_03
+    400008: plaeau roulant
+    400010: plateau roulant 1
+    400012: plateau roulant 2
+    400014: plateau roulant2
+    400016: roue 002
+    400018: roue 003
+    400020: roue 004
+    400022: roue 005
+    400024: roue 006
+    400026: roue 007
+    400028: roue 008
+    400030: roue 1
+    2300000: intouchable_01
+    2300002: intouchable_02
+    2300004: intouchable_03
+    2300006: plaeau roulant
+    2300008: plateau roulant2
+    2300010: roue 002
+    2300012: roue 003
+    2300014: roue 004
+    2300016: roue 005
+    2300018: roue 006
+    2300020: roue 007
+    2300022: roue 008
+    2300024: roue 1
+    3300000: intouchable_01
+    3300002: intouchable_02
+    3300004: intouchable_03
+    3300006: plaeau roulant
+    3300008: plateau roulant2
+    3300010: roue 002
+    3300012: roue 003
+    3300014: roue 004
+    3300016: roue 005
+    3300018: roue 006
+    3300020: roue 007
+    3300022: roue 008
+    3300024: roue 1
+    4300000: intouchable_01
+    4300002: intouchable_02
+    4300004: intouchable_03
+    4300006: roue 005
+    4300008: roue 006
+    4300010: roue 007
+    4300012: roue 008
+    4300014: plateau roulant2
+    4300016: roue 1
+    4300018: roue 004
+    4300020: roue 002
+    4300022: roue 003
+    4300024: plaeau roulant
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
