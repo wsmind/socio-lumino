@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -16,9 +17,8 @@ public class Player : MonoBehaviour
     
     private CharacterController m_controller;
     private float m_verticalSpeed = 0.0f;
-	
 	private float m_selectedBlockRotation = 0.0f;
-	
+	private float m_selectedBlockAnimatedRotation = 0.0f;
     
     void Start()
     {
@@ -56,9 +56,10 @@ public class Player : MonoBehaviour
                 if (placeable)
                 {
                     // move the selected block with the camera
+                    m_selectedBlockAnimatedRotation += 20.0f * Time.deltaTime * (m_selectedBlockRotation - m_selectedBlockAnimatedRotation);
                     SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.forward * SelectionOffset;
                     SelectedBlock.transform.rotation = hitObject.transform.rotation;
-					SelectedBlock.transform.Rotate(0.0f, 0f, m_selectedBlockRotation);
+					SelectedBlock.transform.Rotate((float)Math.Cos(Time.time * 5.0f) * 2.0f, (float)Math.Sin(Time.time * 3.7f) * 2.0f, m_selectedBlockAnimatedRotation);
                     
                     // stick the block to a placeable
                     if (Input.GetButtonDown("Fire1"))
