@@ -52,14 +52,26 @@ public class Player : MonoBehaviour
             }
             else
             {
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    m_selectedBlockRotation += 90f;
+                }
+                m_selectedBlockAnimatedRotation += 20.0f * Time.deltaTime * (m_selectedBlockRotation - m_selectedBlockAnimatedRotation);
+                
+                // move the selected block with the camera
+                SelectedBlock.transform.position = hit.point + hitObject.transform.forward * SelectionOffset;
+                SelectedBlock.transform.rotation = hitObject.transform.rotation;
+                SelectedBlock.transform.Rotate((float)Math.Cos(Time.time * 5.0f) * 2.0f, (float)Math.Sin(Time.time * 3.7f) * 2.0f, m_selectedBlockAnimatedRotation);
+                SelectedBlock.transform.localScale = new Vector3(SelectionScale, SelectionScale, SelectionScale) * 0.5f;
+                
                 var placeable = hitObject.GetComponent<PlaceableBlock>();
                 if (placeable)
                 {
-                    // move the selected block with the camera
-                    m_selectedBlockAnimatedRotation += 20.0f * Time.deltaTime * (m_selectedBlockRotation - m_selectedBlockAnimatedRotation);
+                    // snap
                     SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.forward * SelectionOffset;
                     SelectedBlock.transform.rotation = hitObject.transform.rotation;
-					SelectedBlock.transform.Rotate((float)Math.Cos(Time.time * 5.0f) * 2.0f, (float)Math.Sin(Time.time * 3.7f) * 2.0f, m_selectedBlockAnimatedRotation);
+                    SelectedBlock.transform.Rotate((float)Math.Cos(Time.time * 5.0f) * 2.0f, (float)Math.Sin(Time.time * 3.7f) * 2.0f, m_selectedBlockAnimatedRotation);
+                    SelectedBlock.transform.localScale = new Vector3(SelectionScale, SelectionScale, SelectionScale);
                     
                     // stick the block to a placeable
                     if (Input.GetButtonDown("Fire1"))
@@ -72,10 +84,6 @@ public class Player : MonoBehaviour
                         SelectedBlock.GetComponent<Collider>().enabled = true;
                         SelectedBlock = null;
                     }
-					if (Input.GetButtonDown("Fire2"))
-					{
-						m_selectedBlockRotation += 90f;
-					}
                 }
             }
         }
