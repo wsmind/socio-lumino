@@ -66,10 +66,15 @@ public class Player : MonoBehaviour
                         //var block = SelectedBlock.GetComponent<MoveableBlock>();
                         SelectedBlock.transform.position = hitObject.transform.position;
                         SelectedBlock.transform.rotation = hitObject.transform.rotation;
+						SelectedBlock.transform.Rotate(0.0f, 0f, m_selectedBlockRotation);
                         SelectedBlock.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                         SelectedBlock.GetComponent<Collider>().enabled = true;
                         SelectedBlock = null;
                     }
+					if (Input.GetButtonDown("Fire2"))
+					{
+						m_selectedBlockRotation += 90f;
+					}
                 }
             }
         }
