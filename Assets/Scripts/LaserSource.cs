@@ -79,6 +79,14 @@ public class LaserSource: MonoBehaviour
         int laserIndex = 0;
         Vector3 position = transform.position;
         Vector3 direction = transform.up;
+        
+        // fix - hack
+        if (Type == SourceType.Phosphorescent)
+        {
+            position += 0.5f * transform.forward - 0.5f * transform.up;
+            direction = -transform.up;
+        }
+        
         RaycastHit hit;
         while (laserIndex < PoolSize)
         {
