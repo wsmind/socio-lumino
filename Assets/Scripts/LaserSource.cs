@@ -12,17 +12,24 @@ public class LaserSource: MonoBehaviour
         AlwaysActive,
         Phosphorescent
     };
-    public SourceType m_type;
+    public SourceType Type;
+    
+    public Color LaserColor = Color.red;
     
     private GameObject[] m_laserPool;
     private float m_phosphorescentCharge = 0.0f;
+    private Material m_material;
     
     void Start()
     {
+        m_material = new Material(Shader.Find("Custom/Laser"));
+        m_material.color = LaserColor;
+        
         m_laserPool = new GameObject[PoolSize];
         for (int i = 0; i < PoolSize; i++)
         {
             var laser = Instantiate(LaserPrefab, transform.position, transform.rotation) as GameObject;
+            laser.GetComponent<Renderer>().material = m_material;
             m_laserPool[i] = laser;
         }
         
@@ -33,15 +40,13 @@ public class LaserSource: MonoBehaviour
     
 	void Update()
     {
-        transform.Rotate(50.0f * Time.deltaTime, 0.0f, 0.0f);
-        
         for (int i = 0; i < PoolSize; i++)
         {
             var laser = m_laserPool[i];
             laser.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
         }
         
-        switch (m_type)
+        switch (Type)
         {
             case SourceType.AlwaysActive:
             {
@@ -52,6 +57,7 @@ public class LaserSource: MonoBehaviour
             case SourceType.Phosphorescent:
             {
                 m_phosphorescentCharge -= Time.deltaTime;
+                m_material.color = new Color(LaserColor.r, LaserColor.g, LaserColor.b, m_phosphorescentCharge / PhosphorescentDuration) * LaserColor.a;
                 if (m_phosphorescentCharge <= 0.0f)
                     return;
                 
@@ -77,7 +83,7 @@ public class LaserSource: MonoBehaviour
                 var hitObject = hit.collider.gameObject;
                 var source = hitObject.GetComponent<LaserSource>();
                 var mirror = hitObject.GetComponent<Mirror>();
-                //var button = hitObject.GetComponent<Button>();
+                var lightSwitch = hitObject.GetComponent<LightSwitch>();
                 
                 // if we found a mirror, reflect and go on
                 if (mirror)
@@ -91,7 +97,12 @@ public class LaserSource: MonoBehaviour
                 // it will itself emit new rays
                 if (source)
                 {
-                    source.ReceiveLight(Color.white);
+                    source.ReceiveLight(LaserColor);
+                }
+                
+                if (lightSwitch)
+                {
+                    lightSwitch.ReceiveLight(LaserColor);
                 }
                 
                 break;
