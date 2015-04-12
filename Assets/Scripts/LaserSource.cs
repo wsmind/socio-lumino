@@ -5,9 +5,17 @@ public class LaserSource: MonoBehaviour
 {
     public GameObject LaserPrefab;
     public int PoolSize = 20;
-    public bool Active = true;
+    public float PhosphorescentDuration = 5.0f;
+    
+    public enum SourceType
+    {
+        AlwaysActive,
+        Phosphorescent
+    };
+    public SourceType m_type;
     
     private GameObject[] m_laserPool;
+    private float m_phosphorescentCharge = 0.0f;
     
     void Start()
     {
@@ -17,6 +25,10 @@ public class LaserSource: MonoBehaviour
             var laser = Instantiate(LaserPrefab, transform.position, transform.rotation) as GameObject;
             m_laserPool[i] = laser;
         }
+        
+        /*var renderer = m_laserPool[0].GetComponent<Renderer>();
+        renderer.material = new Material(Shader.Find("Diffuse"));
+        renderer.material.color = Color.green;*/
     }
     
 	void Update()
@@ -29,8 +41,23 @@ public class LaserSource: MonoBehaviour
             laser.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
         }
         
-        if (!Active)
-            return;
+        switch (m_type)
+        {
+            case SourceType.AlwaysActive:
+            {
+                // nothing to do here
+                break;
+            }
+            
+            case SourceType.Phosphorescent:
+            {
+                m_phosphorescentCharge -= Time.deltaTime;
+                if (m_phosphorescentCharge <= 0.0f)
+                    return;
+                
+                break;
+            }
+        }
         
         int laserIndex = 0;
         Vector3 position = transform.position;
@@ -64,7 +91,7 @@ public class LaserSource: MonoBehaviour
                 // it will itself emit new rays
                 if (source)
                 {
-                    // give energy
+                    source.ReceiveLight(Color.white);
                 }
                 
                 break;
@@ -76,4 +103,9 @@ public class LaserSource: MonoBehaviour
             }
         }
 	}
+    
+    void ReceiveLight(Color color)
+    {
+        m_phosphorescentCharge = PhosphorescentDuration;
+    }
 }
