@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 3b3ea1ae42a989f4496ec1870d81d75d
+timeCreated: 1428834854
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ampoule
+    100002: base lampe
+    100004: boule tenir lampe
+    100006: Box001
+    100008: Box002
+    100010: chapeau lampe
+    100012: cube_rayon
+    100014: Cylinder001
+    100016: cylindre tenir lampe
+    100018: //RootNode
+    100020: etagere longue
+    100022: etagere petite
+    100024: etagere002
+    100026: etagere1
+    100028: lampe
+    100030: lanceur de lazer
+    100032: Line001
+    100034: long cylindre lampe
+    100036: plafond
+    100038: poignee etagere 2
+    100040: poignee etagere longue 1
+    100042: poignee etagere longue 2
+    100044: puertaaaa
+    100046: Sphere001
+    100048: tenir chapeau lampe
+    100050: tenir chapeau lampe 003
+    100052: tenir chapeau lampe 004
+    100054: tenir chapeau lampe 2
+    100056: tiroir etagere 2
+    100058: tiroir etagere longue 2
+    100060: tiroir etagere longue1
+    100062: Torus001
+    100064: tuyeau_court
+    400000: ampoule
+    400002: base lampe
+    400004: boule tenir lampe
+    400006: Box001
+    400008: Box002
+    400010: chapeau lampe
+    400012: cube_rayon
+    400014: Cylinder001
+    400016: cylindre tenir lampe
+    400018: //RootNode
+    400020: etagere longue
+    400022: etagere petite
+    400024: etagere002
+    400026: etagere1
+    400028: lampe
+    400030: lanceur de lazer
+    400032: Line001
+    400034: long cylindre lampe
+    400036: plafond
+    400038: poignee etagere 2
+    400040: poignee etagere longue 1
+    400042: poignee etagere longue 2
+    400044: puertaaaa
+    400046: Sphere001
+    400048: tenir chapeau lampe
+    400050: tenir chapeau lampe 003
+    400052: tenir chapeau lampe 004
+    400054: tenir chapeau lampe 2
+    400056: tiroir etagere 2
+    400058: tiroir etagere longue 2
+    400060: tiroir etagere longue1
+    400062: Torus001
+    400064: tuyeau_court
+    2300000: ampoule
+    2300002: base lampe
+    2300004: boule tenir lampe
+    2300006: Box001
+    2300008: Box002
+    2300010: chapeau lampe
+    2300012: cube_rayon
+    2300014: Cylinder001
+    2300016: cylindre tenir lampe
+    2300018: etagere002
+    2300020: etagere1
+    2300022: lanceur de lazer
+    2300024: long cylindre lampe
+    2300026: plafond
+    2300028: poignee etagere 2
+    2300030: poignee etagere longue 1
+    2300032: poignee etagere longue 2
+    2300034: Sphere001
+    2300036: tenir chapeau lampe
+    2300038: tenir chapeau lampe 003
+    2300040: tenir chapeau lampe 004
+    2300042: tenir chapeau lampe 2
+    2300044: tiroir etagere 2
+    2300046: tiroir etagere longue 2
+    2300048: tiroir etagere longue1
+    2300050: Torus001
+    3300000: ampoule
+    3300002: base lampe
+    3300004: boule tenir lampe
+    3300006: Box001
+    3300008: Box002
+    3300010: chapeau lampe
+    3300012: cube_rayon
+    3300014: Cylinder001
+    3300016: cylindre tenir lampe
+    3300018: etagere002
+    3300020: etagere1
+    3300022: lanceur de lazer
+    3300024: long cylindre lampe
+    3300026: plafond
+    3300028: poignee etagere 2
+    3300030: poignee etagere longue 1
+    3300032: poignee etagere longue 2
+    3300034: Sphere001
+    3300036: tenir chapeau lampe
+    3300038: tenir chapeau lampe 003
+    3300040: tenir chapeau lampe 004
+    3300042: tenir chapeau lampe 2
+    3300044: tiroir etagere 2
+    3300046: tiroir etagere longue 2
+    3300048: tiroir etagere longue1
+    3300050: Torus001
+    4300000: Sphere001
+    4300002: Box002
+    4300004: Cylinder001
+    4300006: Box001
+    4300008: long cylindre lampe
+    4300010: plafond
+    4300012: lanceur de lazer
+    4300014: cube_rayon
+    4300016: Torus001
+    4300018: poignee etagere 2
+    4300020: etagere1
+    4300022: tiroir etagere 2
+    4300024: poignee etagere longue 1
+    4300026: tiroir etagere longue1
+    4300028: tiroir etagere longue 2
+    4300030: poignee etagere longue 2
+    4300032: etagere002
+    4300034: ampoule
+    4300036: tenir chapeau lampe 2
+    4300038: tenir chapeau lampe 003
+    4300040: tenir chapeau lampe 004
+    4300042: tenir chapeau lampe
+    4300044: base lampe
+    4300046: chapeau lampe
+    4300048: cylindre tenir lampe
+    4300050: boule tenir lampe
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
