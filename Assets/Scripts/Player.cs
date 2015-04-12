@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     
     private CharacterController m_controller;
     private float m_verticalSpeed = 0.0f;
+	
+	private float m_selectedBlockRotation = 0.0f;
+	
     
     void Start()
     {
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
                     // move the selected block with the camera
                     SelectedBlock.transform.position = hitObject.transform.position + hitObject.transform.forward * SelectionOffset;
                     SelectedBlock.transform.rotation = hitObject.transform.rotation;
+					SelectedBlock.transform.Rotate(0.0f, 0f, m_selectedBlockRotation);
                     
                     // stick the block to a placeable
                     if (Input.GetButtonDown("Fire1"))

@@ -66,8 +66,7 @@ public class LaserSource: MonoBehaviour
         }
         
         int laserIndex = 0;
-        Vector3 position = transform.position;
-        Vector3 direction = transform.up;
+        Vector3 direction = transform.forward;
         RaycastHit hit;
         while (laserIndex < PoolSize)
         {
