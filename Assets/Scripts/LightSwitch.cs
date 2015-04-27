@@ -4,7 +4,10 @@ using System.Collections;
 public class LightSwitch: MonoBehaviour
 {
     public GameObject[] Targets;
+	public GameObject[] TargetsPlateformes;
     public Color UnlockColor = new Color(1.0f, 0.0f, 0.0f);
+	public bool Porte = true;
+	public bool Plateforme = false;
     
     private bool m_active = false;
     private bool m_lightReceived = false;
@@ -16,7 +19,11 @@ public class LightSwitch: MonoBehaviour
             m_active = m_lightReceived;
             foreach (var target in Targets)
             {
-                target.GetComponent<Door>().SetActive(m_active);
+                if (Porte) target.GetComponent<Door>().SetActive(m_active);
+            }
+			foreach (var target in TargetsPlateformes)
+            {
+				if (Plateforme) target.GetComponent<Plateforme>().SetActive(m_active);
             }
         }
         

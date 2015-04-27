@@ -4,9 +4,11 @@ using System.Collections;
 public class Door: MonoBehaviour
 {
     public bool Active = false;
+	public int NbreSwitch = 1;
     public float YRotation = 180.0f;
     
     private float m_currentRotation = 0.0f;
+	private int NbreSwitchActif = 0;
     
     void Start()
     {
@@ -15,7 +17,18 @@ public class Door: MonoBehaviour
     
     public void SetActive(bool active)
     {
-        Active = active;
+		if (active)
+		{
+			NbreSwitchActif += 1; 
+		}
+		else
+		{
+			NbreSwitchActif -= 1; 
+		}
+		if (NbreSwitchActif == NbreSwitch)
+			Active = true;
+		else
+			Active = false;
     }
     
     void Update()
