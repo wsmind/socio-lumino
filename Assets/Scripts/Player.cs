@@ -108,6 +108,11 @@ public class Player : MonoBehaviour
         {
             m_verticalSpeed -= Gravity * Time.deltaTime;
         }
+		
+		//if (Input.GetButtonDown("Reset"))
+		//{
+		//	Application.LoadLevel("Niveau6");
+		//}
         
         Vector3 velocity = (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical")) * MovementSpeed;
         velocity.y = m_verticalSpeed * Time.deltaTime;
